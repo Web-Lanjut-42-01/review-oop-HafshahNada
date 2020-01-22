@@ -1,2 +1,72 @@
-# reviewoop
-Please upload your code.
+<?php 
+class hitung1{
+
+	function hitung($bmi, $jk){
+		if ($jk=="Laki-Laki") {
+			if ($bmi<17) {
+				echo $bmi." Masuk dalam Kategori Under Weight/Kurus";
+			} elseif ($bmi>=17 && $bmi<=25) {
+				echo $bmi." Masuk dalam Kategori Normal Weight/Normal";
+			} elseif ($bmi>25 && $bmi<=27) {
+				echo $bmi." Masuk dalam Kategori Over Weight/Kegemukan";
+			} elseif ($bmi>27) {
+				echo $bmi." Masuk dalam Kategori Obesitas";
+			}
+		} elseif ($jk=="Perempuan") {
+			if ($bmi<18) {
+				echo $bmi." Masuk dalam Kategori Under Weight/Kurus";
+			} elseif ($bmi>=18 && $bmi<=25) {
+				echo $bmi." Masuk dalam Kategori Normal Weight/Normal";
+			} elseif ($bmi>25 && $bmi<=27) {
+				echo $bmi." Masuk dalam Kategori Over Weight/Kegemukan";
+			} elseif ($bmi>27) {
+				echo $bmi." Masuk dalam Kategori Obesitas";
+			}
+		}
+	}
+
+}
+$hbmi = new hitung1(); 
+if (isset($_POST['submit'])) {
+	$nama=$_POST['nama'];
+	$bb= $_POST['bb'];
+	$tb = $_POST['tb'];
+	$jk = $_POST['jk'];
+	$bmi = $bb/($tb*$tb/10000);
+	$hbmi->hitung($bmi, $jk);
+}
+ ?>
+ 
+ <html lang="en">
+<head>
+  
+    <title>Praktikum 1</title>
+</head>
+<body>
+<form action="hitung1.php" method="POST">
+    <table>
+        <tr>
+            <td>Nama : </td>
+            <td><input type="text" name="nama"></td>
+        </tr>
+        <tr>
+            <td>Berat Badan : </td>
+            <td><input type="number" name="bb"> kg</td>
+        </tr>
+        <tr>
+            <td>Tinggi Badan : </td>
+            <td><input type="number" name="tb"> cm</td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin : </td>
+            <td><input type="radio" name="jk" value="Laki-Laki"> Laki-Laki</td>
+            <td><input type="radio" name="jk" value="Perempuan"> Perempuan</td>
+        </tr>
+    </table>
+    <input type="submit" name="submit">
+</form>
+    <?php 
+    
+    ?>
+</body>
+</html>
